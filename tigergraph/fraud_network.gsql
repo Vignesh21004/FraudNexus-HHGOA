@@ -1,0 +1,6 @@
+// Starter query: adapt exact attribute names to HHGOA_IEEE.
+CREATE QUERY connected_accounts(VERTEX<Account> start) FOR GRAPH FraudGraph {
+  Seed={start};
+  result=SELECT tgt FROM Seed:s -(SHARED_WITH>:ANY)- Account:tgt;
+  PRINT result;
+}
